@@ -18,7 +18,7 @@ public class CustomerTest {
     @Before
     public void before(){
         customer = new Customer(1, true);
-        bread = new Item("Hovis", 200, false);
+        bread = new Item("Hovis", 200, true);
         cereal = new Item("Lucky Charms", 2200, false);
 
     }
@@ -27,7 +27,7 @@ public class CustomerTest {
     public void canUseLoyalty(){
         customer.addToBasket(bread);
         customer.addToBasket(bread);
-        assertEquals(392, customer.loyaltyDiscount());
+        assertEquals(196, customer.loyaltyDiscount(), 0.01);
     }
 
     @Test
@@ -35,6 +35,6 @@ public class CustomerTest {
         customer.addToBasket(bread);
         customer.addToBasket(bread);
         customer.addToBasket(cereal);
-        assertEquals(2332, customer.loyaltyDiscount());
+        assertEquals(2136.4, customer.loyaltyDiscount(), 0.01);
     }
 }

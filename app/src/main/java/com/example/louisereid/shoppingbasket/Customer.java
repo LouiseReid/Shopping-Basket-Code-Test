@@ -35,11 +35,10 @@ public class Customer {
     }
 
 
-    public int loyaltyDiscount(){
-        int total = 0;
-        if(loyaltyCard){
-            total = basket.total();
+    public double loyaltyDiscount() {
+        if (loyaltyCard) {
+            return basket.total() * 0.98;
         }
-        return total *= 0.98;
+        return basket.total();
     }
 }
