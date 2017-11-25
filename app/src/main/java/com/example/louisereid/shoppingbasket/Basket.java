@@ -48,31 +48,20 @@ public class Basket {
         items.clear();
     }
 
-    public int bogof(){
-        int total = 0;
+    public int total(){
         for(Item item : items){
             if(item.isBogof()){
-                total += ((item.getQty() / 2) * item.getPrice()) + ((item.getQty() % 2) * item.getPrice());
+                basketTotal += ((item.getQty() / 2) * item.getPrice()) + ((item.getQty() % 2) * item.getPrice());
+                item.discount10();
                 item.setQty(0);
             }
             else if(!item.isBogof()){
-                total += item.getPrice();
+                item.discount10();
+                basketTotal += item.getPrice();
             }
-        }
-        return total;
-    }
-
-
-    public int total(){
-        for(Item item : items){
-            item.discount10();
-            bogof();
-            basketTotal += item.getPrice();
         }
         return basketTotal;
     }
-
-
 
 
 }

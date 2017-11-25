@@ -58,18 +58,22 @@ public class BasketTest {
     @Test
     public void basketHasTotal(){
         basket.addToBasket(bread);
+        basket.addToBasket(bread);
         basket.addToBasket(milk);
         basket.addToBasket(cereal);
         assertEquals(2330, basket.total());
     }
 
     @Test
-    public void canBogof(){
+    public void canBogofLoads(){
+        basket.addToBasket(bread);
+        basket.addToBasket(bread);
+        basket.addToBasket(bread);
         basket.addToBasket(bread);
         basket.addToBasket(bread);
         basket.addToBasket(bread);
         basket.addToBasket(milk);
-        assertEquals(550, basket.bogof());
+        assertEquals(750, basket.total());
     }
 
 
