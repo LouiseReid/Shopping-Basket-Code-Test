@@ -52,9 +52,10 @@ public class Basket {
         int total = 0;
         for(Item item : items){
             if(item.isBogof()){
-                total += ((item.getQty()/2) * item.getPrice()) + ((item.getQty() % 2) * item.getPrice());
+                total += ((item.getQty() / 2) * item.getPrice()) + ((item.getQty() % 2) * item.getPrice());
+                item.setQty(0);
             }
-            if(!item.isBogof()){
+            else if(!item.isBogof()){
                 total += item.getPrice();
             }
         }

@@ -67,7 +67,9 @@ public class BasketTest {
     public void canBogof(){
         basket.addToBasket(bread);
         basket.addToBasket(bread);
-        assertEquals(200, basket.total());
+        basket.addToBasket(bread);
+        basket.addToBasket(milk);
+        assertEquals(550, basket.bogof());
     }
 
 
